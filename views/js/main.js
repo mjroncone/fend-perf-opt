@@ -429,6 +429,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   // randomPizzas variable/implementation taken from Cameron's solution: https://www.udacity.com/course/viewer#!/c-ud860-nd/l-4147498575/e-4154208580/m-4240308553
+  // absorbed function sizeSwitcher into here, since this is the only time it is needed. Removed dx function because it was worthless. See Readme for more info.
   function changePizzaSizes(size) {
      var newWidth;
      switch(size) {
@@ -513,6 +514,7 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+// Changed the amount of pizzas generated so that there wasn't an absurd amount of extra pizzas that never make it on screen.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 5;
   var s = 300;
