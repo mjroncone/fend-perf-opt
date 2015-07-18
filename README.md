@@ -1,40 +1,23 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+### My Optimization Route: HTML(index.html and variants)
 
-To get started, check out the repository, inspect the code,
+1. Google font was removed. The impact/design difference was not important enough for the performance sag.
+2. All CSS was inlined. The styles.css file was not large enough to warrant blocking the rendering path.
+3. Non-critical JS files were made async, which included moving the inlined analytics code to an external file and then calling it with async.
+4. All images were optimized to be no larger than their largest size when painted on the screen.
 
-### Getting started
+### My Optimization Route: HTML(pizza.html and main.js)
 
-####Part 1: Optimize PageSpeed Insights score for index.html
-
-Some useful tips to help you get started:
-
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
-
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
-
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
-
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok 8080
-  ```
-
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-####Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+1. Changed pizzaElementGenerator to append pizzas as they are created, instead of returning them and appending later.
+2. Fixed changePizzaSizes to eliminate the Forced Synchronous layout that it was causing.
+  * Took the size switcher from the separate function and placed it inside the changePizzaSizes function. It is only used here so why keep it separate>
+  * Eliminated the use of dx, because it was a weird way of performing a bunch of useless calculations by finding the difference in ratio of pizza to windowsize between
+  the old and the new sizes. Instead, I just made it choose a newWidth based on a certain % from the size switcher.
+3. Took document.body.scrollTop out of the updatePositions function's for loop in order to try and avoid some more FSL issues.
+4. Reduced and simplified the sliding pizza generator from 8 pizzas * 25 rows to 5 pizzas * 3 rows. The way that
+the sliding pizzas work, you basically had an extra 22 rows of unnecessary pizzas, as they scroll with the viewport causing a whole lot of extra painting.
+5. Switched some work from painting to compositing only by making each sliding pizza have will-change: transform.
 
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
