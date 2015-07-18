@@ -431,7 +431,6 @@ var resizePizzas = function(size) {
   // randomPizzas variable/implementation taken from Cameron's solution: https://www.udacity.com/course/viewer#!/c-ud860-nd/l-4147498575/e-4154208580/m-4240308553
   function changePizzaSizes(size) {
      var newWidth;
-     console.log(size);
      switch(size) {
       case "1":
          newWidth = 25.0;
@@ -445,7 +444,6 @@ var resizePizzas = function(size) {
       default:
          console.log("bug in sizeSwitcher");
      }
-     console.log(newWidth);
 
     var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
 
@@ -516,16 +514,16 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
-  for (var i = 0; i < 200; i++) {
+  var cols = 5;
+  var s = 300;
+  for (var i = 0; i < 15; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
-    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    elem.style.top = (Math.floor(i / cols) * 256) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
