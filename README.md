@@ -7,7 +7,7 @@
 3. Non-critical JS files were made async, which included moving the inlined analytics code to an external file and then calling it with async.
 4. All images were optimized to be no larger than their largest size when painted on the screen.
 
-### My Optimization Route: HTML(pizza.html and main.js)
+### My Optimization Route: JS(pizza.html and main.js)
 
 1. Changed pizzaElementGenerator to append pizzas as they are created, instead of returning them and appending later.
 2. Fixed changePizzaSizes to eliminate the Forced Synchronous layout that it was causing.
