@@ -1,5 +1,13 @@
 ## Website Performance Optimization portfolio project
 
+### Instructions for Running
+
+To begin, either download the repository and open index.html in your own browser, or check out my github pages version at: http://mjroncone.github.io/frontend-nanodegree-mobile-portfolio/
+
+Feel free to play around with any of the sections. There currently is not any additional functionality in the first three pages, but you will find additional things to do on the page called "Cam's Pizzeria".
+
+In Cam's Pizzeria, you can see the background pizzas move around as you scroll through the page. You can also use the slider in the "Our Pizzas!" section to resize the picture pizzas below it. The three sizes available are small, medium, and large. But you could change the code to include any number of sizes!
+
 ### My Optimization Route: HTML(index.html and variants)
 
 1. Google font was removed. The impact/design difference was not important enough for the performance sag.
