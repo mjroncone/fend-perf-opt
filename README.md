@@ -2,7 +2,7 @@
 
 ### Instructions for Running
 
-To begin, either download the repository and open index.html in your own browser, or check out my github pages version at: http://mjroncone.github.io/frontend-nanodegree-mobile-portfolio/
+To begin, either download the repository and open index.html in your own browser, or check out my github pages version at: [http://mjroncone.github.io/fend-perf-opt/](http://mjroncone.github.io/fend-perf-opt/ "Mike Roncone's optimization example").
 
 Feel free to play around with any of the sections. There currently is not any additional functionality in the first three pages, but you will find additional things to do on the page called "Cam's Pizzeria".
 
